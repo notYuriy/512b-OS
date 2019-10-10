@@ -10,6 +10,10 @@ It is a joke OS. Even it can run binary executables it was not designed to run o
 |:--:| 
 |*OS doesn't show anything because no valid entry present in root directory*|
 
+|![OS is running simple FizzBuzz application](screenshot-fizzbuzz.png)|
+|:--:| 
+|*OS is running simple FizzBuzz application*|
+
 Implemented:
 * user interface
   * clear screen and shows current picked file
