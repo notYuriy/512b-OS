@@ -34,7 +34,6 @@ User guide
 * Use ./test.sh to run application
 * OS is designed to run on 1.44MB floppy
 * It was not tested on real hardware, so please don't do it
-* Provided "as is". See LICENSE.txt for details
 
 Development:
 * Use flags to tell assembler/compiler to output plain 16 bit binary.
