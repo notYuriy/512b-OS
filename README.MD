@@ -42,3 +42,6 @@ Development:
 * Place your executables at initdisk
 * ./build.sh to build .vfd
 * ./test.sh to run qemu and test
+
+Example applications:
+Will be added soon.
