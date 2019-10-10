@@ -14,7 +14,7 @@ Implemented:
 * user interface
   * clear screen and shows current picked file
   * up and down arrow keys to select file
-  * enter to start file
+  * enter to execute file
 * searching all files on FAT12 disk
 * loading COM executables
   * maximum size - 65536 bytes (it is checked)
