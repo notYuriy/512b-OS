@@ -18,3 +18,8 @@ Unimplemented:
 * memory protection
 * file io system api
 * launching more than one app api
+
+Development:
+* Use flags to tell assembler/compiler to output plain 16 bit binary.
+* Use int 21h to exit program
+* Bios interrupts are avalible
