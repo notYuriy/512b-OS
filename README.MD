@@ -19,7 +19,17 @@ Unimplemented:
 * file io system api
 * launching more than one app api
 
+User guide
+* OS is buildable only under Linux, and I am not going to add support for Windows.
+* Use ./test.sh to run application
+* OS is designed to run on 1.44MB floppy
+* It was not tested on real hardware, so please don't do it
+* Provided "as is". See LICENSE.txt for details
+
 Development:
 * Use flags to tell assembler/compiler to output plain 16 bit binary.
 * Use int 21h to exit program
 * Bios interrupts are avalible
+* Place your executables at initdisk
+* ./build.sh to build .vfd
+* ./test.sh to run qemu and test
