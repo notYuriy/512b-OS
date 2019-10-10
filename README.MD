@@ -42,5 +42,4 @@ Development:
 * Place your executables at initdisk
 * ./build.sh to build .vfd
 * ./test.sh to run qemu and test
-
-FizzBuzz is example application.
+* FizzBuzz is example of valid assembly 512b OS application.
