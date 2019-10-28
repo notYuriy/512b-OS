@@ -75,28 +75,24 @@ READ_FAT_FROM_DISK:
 ; FINDS NEXT CLUSTER
 NEXT_CLUSTER:
     pusha
-    push es
-    xor ax, ax
-    mov es, ax
-    mov ax, word [FILE_CLUSTER]
-    sub ax, 32
-    mov cx, ax
-    mov dx, ax
-    shr dx, 0x0001
-    add cx, dx
-    mov bx, 0x7e00
-    add bx, cx
-    mov dx, word [es:bx]
-    test ax, 0x0001
-    jnz .ODD_CLUSTER
-.EVEN_CLUSTER:
-    and dx, 0000111111111111b
-    jmp .DONE
+    mov ax, [FILE_CLUSTER]
+    mov dx, 0
+    mov bx, 3
+    mul bx
+    mov bx, 2
+    div bx
+    mov si, 0x7e00
+    add si, ax
+    mov ax, word[ds:si]
+    or dx, dx
+    jz .EVEN_CLUSTER
 .ODD_CLUSTER:
-    shr dx, 0x0004
+    shr ax, 4
+    jmp .DONE
+.EVEN_CLUSTER:
+    and ax, 0fffh
 .DONE:
-    mov word [FILE_CLUSTER], dx
-    pop es
+    mov word [FILE_CLUSTER], ax
     popa
     ret
 
@@ -121,9 +117,8 @@ LOAD_EXECUTABLE:
     xor bx, bx
     mov ax, [FILE_CLUSTER]
 .LOOP:
-    cmp word [FILE_CLUSTER], 0x0fff
-    je .DONE
     mov ax, [FILE_CLUSTER]
+    add ax, 31
     call LBACHS
     mov ah, 0x02
     mov al, 1
@@ -134,6 +129,8 @@ LOAD_EXECUTABLE:
     int 13h
     add bx, 512
     call NEXT_CLUSTER
+    cmp word [FILE_CLUSTER], 0x0ff8
+    jge .DONE
     jmp .LOOP
 .DONE:
     mov ah, 0x00
@@ -262,7 +259,6 @@ LOOP:
     mov bx, bp
     add bx, 26
     mov ax, word [es:bx]
-    add ax, 31
     mov word [FILE_CLUSTER], ax
     add bx, 2
     mov eax, dword [es:bx]
