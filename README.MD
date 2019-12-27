@@ -47,3 +47,5 @@ Development:
 * ./build.sh to build .vfd
 * ./test.sh to run qemu and test
 * FizzBuzz is example of valid assembly 512b OS application.
+
+Some code is used from http://www.brokenthorn.com/Resources/OSDevIndex.html
