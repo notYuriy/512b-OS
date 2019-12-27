@@ -1,6 +1,9 @@
 bits 16
 org 0x7c00
 
+; some code is used from these tutorials
+; http://www.brokenthorn.com/Resources/OSDevIndex.html
+
 jmp SETUP
 ; BIOS PARAMETER BLOCK
 OEM_NAME:               db "MSWIN1.4"
